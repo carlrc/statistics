@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const round = (value) => {
+    return Math.round(value * 10) / 10;
+};
+exports.round = round;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicm91bmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJyb3VuZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLE1BQU0sS0FBSyxHQUFHLENBQUMsS0FBYSxFQUFVLEVBQUU7SUFDcEMsT0FBTyxJQUFJLENBQUMsS0FBSyxDQUFDLEtBQUssR0FBRyxFQUFFLENBQUMsR0FBRyxFQUFFLENBQUM7QUFDdkMsQ0FBQyxDQUFDO0FBR0Usc0JBQUsiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCByb3VuZCA9ICh2YWx1ZTogbnVtYmVyKTogbnVtYmVyID0+IHtcbiAgICByZXR1cm4gTWF0aC5yb3VuZCh2YWx1ZSAqIDEwKSAvIDEwO1xufTtcblxuZXhwb3J0IHtcbiAgICByb3VuZFxufTtcbiJdfQ==
