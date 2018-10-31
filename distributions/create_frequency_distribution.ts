@@ -9,13 +9,13 @@ const createFrequencyDistribution = (list: number[],
         return frequencyDistributions;
     }
 
-    const lowestClass = createClass(lowerLimit, classWidth);
-    const trimmedList = list.filter((x) => x > lowestClass.class_boundary_upper);
-    const lowestClassWithFrequency = Object.assign({frequency: (list.length - trimmedList.length)}, lowestClass);
-    const newLowerLimit = Math.min(...trimmedList);
-    const distributions = frequencyDistributions ? [...frequencyDistributions, lowestClassWithFrequency] : [lowestClassWithFrequency];
+    const fd = createClass(lowerLimit, classWidth);
+    const elementsOutsideClassBoundary = list.filter((x) => x > fd.class_boundary_upper);
+    const fdWithFrequency = Object.assign({frequency: (list.length - elementsOutsideClassBoundary.length)}, fd);
+    const newLowerLimit = fdWithFrequency.class_limit_upper + 1;
+    const distributions = frequencyDistributions ? [...frequencyDistributions, fdWithFrequency] : [fdWithFrequency];
 
-    return createFrequencyDistribution(trimmedList, newLowerLimit, classWidth, distributions);
+    return createFrequencyDistribution(elementsOutsideClassBoundary, newLowerLimit, classWidth, distributions);
 };
 
 const createClass = (lowerLimit: number, classWidth: number): FrequencyDistributionClass => {
