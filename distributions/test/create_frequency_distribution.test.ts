@@ -1,4 +1,5 @@
-import {createFrequencyDistribution} from "../create_frequency_distribution";
+import { Scale } from "../../common/interfaces/scale_enum";
+import { createFrequencyDistribution } from "../create_frequency_distribution";
 import { FrequencyDistributionClass } from "../interfaces/frequency_distribution";
 
 test("it should create two classes in a list where the width is the difference between the high and low", () => {
@@ -24,7 +25,7 @@ test("it should create two classes in a list where the width is the difference b
             frequency: 1
         }
     ];
-    const result = createFrequencyDistribution(list, 5, classWidth);
+    const result = createFrequencyDistribution(list, 5, classWidth, Scale.TENTHS);
     expect(result).toStrictEqual(expectedResult);
 });
 test("it should create a correct frequency distribution for a random set with a medium width", () => {
@@ -77,7 +78,7 @@ test("it should create a correct frequency distribution for a random set with a 
           frequency: 3
         }
       ];
-    const result = createFrequencyDistribution(list, 5, classWidth);
+    const result = createFrequencyDistribution(list, 5, classWidth, Scale.TENTHS);
 
     expect(result).toStrictEqual(expectedResult);
 });
@@ -85,7 +86,7 @@ test("it should create a correct frequency distribution for a random set with a 
 test("it should create a correct frequency distribution for a random set with a small width", () => {
     const list = [8, 25, 11, 15, 29, 22, 10, 5, 17, 21, 22, 13, 26, 16, 18, 12, 9, 26, 20, 16, 23, 14, 19, 23, 20, 16, 27, 16, 21, 14];
     const classWidth = 5;
-    const result = createFrequencyDistribution(list, 5, classWidth);
+    const result = createFrequencyDistribution(list, 5, classWidth, Scale.TENTHS);
     const expectedResult = [
         {
           class_boundary_lower: 4.5,
