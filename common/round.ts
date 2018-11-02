@@ -1,5 +1,7 @@
-const round = (value: number): number => {
-    return Math.round(value * 10) / 10;
+import { Scale } from "./interfaces/scale_enum";
+
+const round = (value: number, scale: Scale): number => {
+    return Math.round(value * scale) / scale;
 };
 
 export {
