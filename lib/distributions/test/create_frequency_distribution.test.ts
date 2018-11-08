@@ -33,10 +33,10 @@ test("it should create a correct frequency distribution for a random set with a 
     const classWidth = 10;
     const expectedResult = [
         {
-          class_boundary_lower: 4.5,
-          class_boundary_upper: 14.5,
-          class_limit_lower: 5,
-          class_limit_upper: 14,
+            class_limit_upper: 14,
+            class_boundary_lower: 4.5,
+            class_boundary_upper: 14.5,
+            class_limit_lower: 5,
           class_midpoint: 9.5,
           class_width: 10,
           frequency: 2
