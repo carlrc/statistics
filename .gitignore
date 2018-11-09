@@ -2,7 +2,6 @@ node_modules/
 .idea/
 
 # Ignores compiled TypeScript files
-common/**/*.js.map
-common/**/*.js
-/distributions/**/*.js.map
-/distributions/**/*.js
+lib/**/*.js.map
+lib/**/*.js
+*.js
