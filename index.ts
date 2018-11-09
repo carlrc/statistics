@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const figlet = require("figlet");
 
 console.log(
-  chalk.yellow(
+  chalk.cyanBright(
     figlet.textSync("Statistics CLI", {
       font: "Standard",
       horizontalLayout: "default",

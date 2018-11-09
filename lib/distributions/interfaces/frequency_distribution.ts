@@ -9,12 +9,6 @@ interface FrequencyDistributionClass {
     relative_frequency?: number;
 }
 
-interface FrequencyDistribution {
-    sum: number;
-    distributions: FrequencyDistributionClass[];
-}
-
 export {
     FrequencyDistributionClass,
-    FrequencyDistribution
 };
