@@ -1,0 +1,7 @@
+{
+    "data": [1, 2, 3, 4, 4, 4],
+    "options": {
+        "lowerLimit": 5,
+        "classWidth": 10 
+    }
+}
