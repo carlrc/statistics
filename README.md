@@ -50,25 +50,21 @@
 + Create JSON file at root with the following structure:
 
 ```typescript
-// Input
-{
-    "data": number[];
-    "options": {
-        "lowerLimit": number;
-        "classWidth": number;
+interface Input {
+    data: number[];
+    options: {
+        lowerLimit: number;
+        classWidth: number;
     }
 }
-// Output
-[
-    {
-        "frequency": number;
-        "class_limit_lower": number;
-        "class_limit_upper": number;
-        "class_boundary_lower": number;
-        "class_boundary_upper": number;
-        "class_midpoint": number;
-        "class_width": number;
-    }
-    ...
-]
+
+interface FrequencyDistributionClass {
+    class_limit_lower: number;
+    class_limit_upper: number;
+    class_boundary_lower: number;
+    class_boundary_upper: number;
+    class_width: number;
+    class_midpoint: number;
+    frequency: number;
+}
 ```
