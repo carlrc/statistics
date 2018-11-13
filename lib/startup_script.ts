@@ -13,7 +13,7 @@ const figlet = require("figlet");
 const fs = require("fs");
 
 class StartupScript {
-    constructor(private operations: string[], private pwd: any) { }
+    constructor(private operations: string[], private scales: Scale[], private pwd: any) { }
 
     public async start(): Promise<StartupSelections> {
         try {
@@ -60,7 +60,7 @@ class StartupScript {
                     type: "list",
                     name: "mantissa",
                     message: "Round results to the nearest:",
-                    choices: Object.keys(Scale)
+                    choices: this.scales.map(String)
                 }
               ];
             return inquirer.prompt(questions);

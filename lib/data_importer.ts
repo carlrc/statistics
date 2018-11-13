@@ -1,12 +1,16 @@
 import { Input } from "./interfaces/input";
 // tslint:disable-next-line:no-var-requires
 const fs = require("fs");
+// tslint:disable-next-line:no-var-requires
+const path = require("path");
 
 class DataImporter {
 
-    public async import(fileToImport: string): Promise<Input> {
+    public async import(pwd: string, fileToImport: string): Promise<Input> {
         try {
-            const data = fs.readFileSync(`../${fileToImport}`);
+            const filePath = path.resolve(pwd, fileToImport);
+
+            const data = fs.readFileSync(filePath);
 
             const file = JSON.parse(data);
             const fileValid = this.validate(file);
@@ -17,6 +21,7 @@ class DataImporter {
 
             return file;
         } catch (error) {
+            console.log("File Import Error", error);
             throw error;
         }
     }
