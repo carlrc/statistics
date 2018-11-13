@@ -3,9 +3,9 @@ import { Operations } from "./interfaces/operations";
 import { Scale } from "./interfaces/scale_enum";
 import { Operation } from "./operation";
 
-const setOperations = (scale: Scale): Map<Operations, Operation> => {
+const setOperations = (scale: Scale): Map<string, Operation> => {
     try {
-        const operations = new Map<Operations, Operation>();
+        const operations = new Map<string, Operation>();
         operations.set(Operations.FREQUENCY_DISTRIBUTION, new FrequencyDistribution(scale));
         
         return operations;
