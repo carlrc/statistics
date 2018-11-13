@@ -1,44 +1,30 @@
-// tslint:disable-next-line:no-var-requires
-const chalk = require("chalk");
-// tslint:disable-next-line:no-var-requires
-const figlet = require("figlet");
-// tslint:disable-next-line:no-var-requires
-const fs = require("fs");
+import { DataImporter } from "./lib/data_importer";
+import { listOperations } from "./lib/list_operations";
+import { setOperations } from "./lib/set_operations";
+import { StartupScript } from "./lib/startup_script";
 // tslint:disable-next-line:no-var-requires
 const path = require("path");
-import { askForFileToImport } from "./lib/ask_file_to_import";
-import { askOperationToPerform } from "./lib/ask_operation_to_perform";
-import { FileSelection } from "./lib/interfaces/file_selection";
-import { Input } from "./lib/interfaces/input";
-import {listOperations} from "./lib/list_operations";
-
-console.log(
-  chalk.cyanBright(
-    figlet.textSync("Statistics CLI", {
-      font: "Standard",
-      horizontalLayout: "default",
-      verticalLayout: "default"})
-  )
-);
-
-const importData = async (): Promise<Input> => {
-  const pwd = path.dirname(__filename);
-  const files: string[] = fs.readdirSync(pwd);
-  const fileSelection: FileSelection = await askForFileToImport(files);
-  const data = fs.readFileSync(fileSelection.file);
-
-  return JSON.parse(data);
-};
+const pwd = path.dirname(__filename);
+const operationsList = listOperations();
+const startupScript = new StartupScript(operationsList, pwd);
+const dataImporter = new DataImporter();
 
 const start = async () => {
-  const input: Input = await importData();
-  const operations = listOperations();
-  const operation: string = await askOperationToPerform();
+  try {
+    const startupSelections = await startupScript.start();
+
+    const file = dataImporter.import(startupSelections.file);
+    const operations = setOperations(Number(startupSelections.scale));
+    console.log("file", file);
+    console.log("operations", operations);
+  } catch (error) {
+    console.log("error", error);
+    throw error;
+  }
 };
 
-start();
-// import file
-
-// select function
-
-// 
+try {
+  start();
+} catch (error) {
+  console.log(`Could not complete command.`, error);
+}
