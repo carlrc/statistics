@@ -1,13 +1,31 @@
+import { DataImporter } from "./lib/data_importer";
+import { listOperations, listScales } from "./lib/list_startup_options";
+import { setOperations } from "./lib/set_operations";
+import { StartupScript } from "./lib/startup_script";
 // tslint:disable-next-line:no-var-requires
-const chalk = require("chalk");
-// tslint:disable-next-line:no-var-requires
-const figlet = require("figlet");
+const path = require("path");
+const pwd = path.dirname(__filename);
+const operationsList = listOperations();
+const scalesList = listScales();
+const startupScript = new StartupScript(operationsList, scalesList, pwd);
+const dataImporter = new DataImporter();
 
-console.log(
-  chalk.cyanBright(
-    figlet.textSync("Statistics CLI", {
-      font: "Standard",
-      horizontalLayout: "default",
-      verticalLayout: "default"})
-  )
-);
+const start = async () => {
+  try {
+    const startupSelections = await startupScript.start();
+    const file = await dataImporter.import(pwd, startupSelections.file);
+    const operations = setOperations(Number(startupSelections.scale));
+
+    const result = await operations.get(startupSelections.operation).calculate(file);
+    console.log("Result", result);
+  } catch (error) {
+    console.log("General Error", error);
+    throw error;
+  }
+};
+
+try {
+  start();
+} catch (error) {
+  console.log(`Could not complete command.`, error);
+}
