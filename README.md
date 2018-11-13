@@ -6,15 +6,37 @@
 + Run `npm run build`
 + Run `node index.js`
 
-```javascript
-// Example for Frequency Distribution
+```typescript
+// Example of Frequency Distribution
 {
-    "data": [1, 2, 3, 4, 5],
-    "options": {
-        "lowerLimit": 5,
-        "classWidth": 2
+    data: [1, 2, 3, 4, 4, 4, 3, 23, 55, 77, 11, 33, 23, 23, 22, 6, 8, 2, 9, 80, 12],
+    options: {
+        lowerLimit: 1,
+        classWidth: 10
     }
 }
+// Output
+[
+    {
+        frequency: 11,
+        class_limit_lower: 1,
+        class_limit_upper: 10,
+        class_boundary_lower: 0.5,
+        class_boundary_upper: 10.5,
+        class_midpoint: 5.5,
+        class_width: 10
+    },
+    {
+        frequency: 2,
+        class_limit_lower: 11,
+        class_limit_upper: 20,
+        class_boundary_lower: 10.5,
+        class_boundary_upper: 20.5,
+        class_midpoint: 15.5,
+        class_width: 10
+    },
+    ... 6 more items
+]
 ```
 
 ## Examples
@@ -27,12 +49,26 @@
 
 + Create JSON file at root with the following structure:
 
-```javascript
+```typescript
+// Input
 {
-    "data": number[]
-    "options": {
-        "lowerLimit": number,
-        "classWidth": number
+    data: number[];
+    options: {
+        lowerLimit: number;
+        classWidth: number;
     }
 }
+// Output
+[
+    {
+        frequency: number;
+        class_limit_lower: number;
+        class_limit_upper: number;
+        class_boundary_lower: number;
+        class_boundary_upper: number;
+        class_midpoint: number;
+        class_width: number;
+    }
+    ...
+]
 ```
