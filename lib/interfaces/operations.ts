@@ -1,5 +1,6 @@
 enum Operations {
-    FREQUENCY_DISTRIBUTION = "Frequency Distribution"
+    FREQUENCY_DISTRIBUTION = "Frequency Distribution",
+    STANDARD_DEVIATION = "Standard Deviation"
 }
 
 export {
