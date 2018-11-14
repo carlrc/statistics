@@ -9,6 +9,7 @@
 ## Examples
 
 + [Frequency Distribution](#frequency-distribution)
++ [Standard Deviation](#standard-deviation)
 + [Media](#media)
 
 ## Operations
@@ -36,6 +37,18 @@ interface FrequencyDistributionClass {
     class_midpoint: number;
     frequency: number;
 }
+```
+
+## Standard Deviation
+
++ Create JSON file at root with the following structure:
+
+```Typescript
+interface Input {
+    data: number[];
+}
+
+// Outputs number
 ```
 
 ## Media

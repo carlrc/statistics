@@ -12,11 +12,16 @@ abstract class Operation {
     }
 
     public mean(list: number[]): number {
+        const sum = this.sum(list);
+        return this.round((sum / list.length));
+    }
+
+    public sum(list: number[]): number {
         let sum: number = 0;
         for (const element of list) {
             sum += element;
         }
-        return this.round((sum / list.length));
+        return this.round(sum);
     }
 }
 

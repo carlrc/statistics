@@ -3,7 +3,8 @@ import { Scale } from "./interfaces/scale_enum";
 
 const listOperations = (): Operations[] => {
   return [
-    Operations.FREQUENCY_DISTRIBUTION
+    Operations.FREQUENCY_DISTRIBUTION,
+    Operations.STANDARD_DEVIATION
   ];
 };
 
