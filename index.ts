@@ -16,16 +16,17 @@ const start = async () => {
     const file = await dataImporter.import(pwd, startupSelections.file);
     const operations = setOperations(Number(startupSelections.scale));
 
-    const result = await operations.get(startupSelections.operation).calculate(file);
-    console.log("Result", result);
+    return await operations.get(startupSelections.operation).calculate(file);
   } catch (error) {
     console.log("General Error", error);
     throw error;
   }
 };
 
-try {
-  start();
-} catch (error) {
-  console.log(`Could not complete command.`, error);
-}
+start()
+.then((result) => {
+    console.log("Result", result);
+})
+.catch((error) => {
+    console.log(`Could not complete command.`, error);
+});
