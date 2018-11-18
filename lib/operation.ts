@@ -1,11 +1,14 @@
 import { Input } from "./interfaces/input";
+import {Options} from "./interfaces/options";
 import { Output } from "./interfaces/output";
 import { Scale } from "./interfaces/scale_enum";
 
 abstract class Operation {
     constructor(private scale: Scale) { }
     
-    public abstract calculate(input: Input): Promise<Output>;
+    public async abstract calculate(input: Input): Promise<Output>;
+
+    public async abstract setOptions(): Promise<Options>;
 
     public round(value: number): number {
         return Math.round(value * this.scale) / this.scale;

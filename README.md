@@ -2,54 +2,19 @@
 
 ## Usage
 
-+ Find operation you wish to perform in [examples](#examples) and follow instructions
-+ Run `npm run build`
-+ Run `node index.js`
-
-## Examples
-
-+ [Frequency Distribution](#frequency-distribution)
-+ [Standard Deviation](#standard-deviation)
-+ [Media](#media)
-
-## Operations
-
-### Frequency Distribution
-
 + Create JSON file at root with the following structure:
-
 ```typescript
 interface Input {
     data: number[];
-    options: {
-        lowerLimit: number;
-        classWidth: number;
-    }
-}
-
-// Outputs FrequencyDistributionClass[]
-interface FrequencyDistributionClass {
-    class_limit_lower: number;
-    class_limit_upper: number;
-    class_boundary_lower: number;
-    class_boundary_upper: number;
-    class_width: number;
-    class_midpoint: number;
-    frequency: number;
 }
 ```
++ Run `npm run build`
++ Run `node index.js`
 
-## Standard Deviation
+## Operations
 
-+ Create JSON file at root with the following structure:
-
-```Typescript
-interface Input {
-    data: number[];
-}
-
-// Outputs number
-```
++ [Frequency Distribution](https://en.wikipedia.org/wiki/Frequency_distribution)
++ [Standard Deviation](https://en.wikipedia.org/wiki/Standard_deviation)
 
 ## Media
 

@@ -27,15 +27,7 @@ class DataImporter {
     }
 
     private validate(file: any): boolean {
-        if (typeof(file.data) === "undefined") {
-            return false;
-        }
-
-        if (typeof(file.options) === "undefined") {
-            return false;
-        }
-
-        return true;
+        return typeof(file.data) !== "undefined";
     }
 }
 

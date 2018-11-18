@@ -1,8 +1,11 @@
 import { Input } from "../interfaces/input";
+import { Options } from "../interfaces/options";
 import { Output } from "../interfaces/output";
 import { Scale } from "../interfaces/scale_enum";
 import { Operation } from "../operation";
 import { FrequencyDistributionClass } from "./interfaces/frequency_distribution";
+// tslint:disable-next-line:no-var-requires
+const inquirer = require("inquirer");
 
 class FrequencyDistribution extends Operation {
     constructor(scale: Scale) {
@@ -22,6 +25,36 @@ class FrequencyDistribution extends Operation {
                 result: []
             };
         }
+    }
+
+    public async setOptions(): Promise<Options> {
+        const questions = [
+            {
+                type: "input",
+                name: "lowerLimit",
+                message: "What's the lower limit of your data set:",
+                validate(value: string) {
+                    const canBeConvertedToNumber = Number(value);
+                    if (canBeConvertedToNumber) {
+                        return true;
+                    }
+                    return "Please enter a valid number";
+                }
+            },
+            {
+                type: "input",
+                name: "classWidth",
+                message: "What is your desired class width:",
+                validate(value: string) {
+                    const canBeConvertedToNumber = Number(value);
+                    if (canBeConvertedToNumber) {
+                        return true;
+                    }
+                    return "Please enter a valid number";
+                }
+            }
+        ];
+        return inquirer.prompt(questions);
     }
 
     private createFrequencyDistribution(list: number[], 
