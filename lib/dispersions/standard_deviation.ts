@@ -3,6 +3,8 @@ import {Options} from "../interfaces/options";
 import { Output } from "../interfaces/output";
 import { Scale } from "../interfaces/scale_enum";
 import { Operation } from "../operation";
+// tslint:disable-next-line:no-var-requires
+const inquirer = require("inquirer");
 
 class StandardDeviation extends Operation {
     constructor(scale: Scale) {
@@ -23,7 +25,18 @@ class StandardDeviation extends Operation {
     }
 
     public async setOptions(): Promise<Options> {
-        return;
+        const questions = [
+            {
+                type: "list",
+                name: "sample",
+                message: "Select what type of data set you are importing:",
+                choices: [
+                    "sample",
+                    "population"
+                ]
+            }
+        ];
+        return inquirer.prompt(questions);
     }
 }
 
