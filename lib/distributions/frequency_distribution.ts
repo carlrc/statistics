@@ -13,8 +13,8 @@ class FrequencyDistribution extends Operation {
     }
 
     public async calculate(input: Input): Promise<Output> {
-        const lowerLimit = input.options.lowerLimit;
-        const classWidth = input.options.classWidth;
+        const lowerLimit = Number(input.options.lowerLimit);
+        const classWidth = Number(input.options.classWidth);
         
         try {
             const result = this.createFrequencyDistribution(input.data, lowerLimit, classWidth);

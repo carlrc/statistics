@@ -5,7 +5,7 @@ import { FrequencyDistributionClass } from "../interfaces/frequency_distribution
 
 test("it should create two classes in a list where the width is the difference between the high and low", async () => {
     const list = [5, 25];
-    const classWidth = 20;
+    const classWidth = "20";
     const expectedResult: FrequencyDistributionClass[] = [
         {
             class_limit_lower: 5,
@@ -13,7 +13,7 @@ test("it should create two classes in a list where the width is the difference b
             class_boundary_lower: 4.5,
             class_boundary_upper: 24.5,
             class_midpoint: 14.5,
-            class_width: classWidth,
+            class_width: Number(classWidth),
             frequency: 1
         },
         {
@@ -22,14 +22,14 @@ test("it should create two classes in a list where the width is the difference b
             class_boundary_lower: 24.5,
             class_boundary_upper: 44.5,
             class_midpoint: 34.5,
-            class_width: classWidth,
+            class_width: Number(classWidth),
             frequency: 1
         }
     ];
     const input: Input = {
       data: list,
       options: {
-        lowerLimit: 5, 
+        lowerLimit: "5",
         classWidth,
       }
     };
@@ -39,7 +39,7 @@ test("it should create two classes in a list where the width is the difference b
 
 test("it should create a correct frequency distribution for a random set with a medium width", async () => {
     const list = [45, 25, 39, 5, 42, 48, 35, 12, 40, 16, 36, 27, 37, 30, 18, 22, 32, 54, 44, 29];
-    const classWidth = 10;
+    const classWidth = "10";
     const expectedResult = [
         {
             class_limit_upper: 14,
@@ -90,7 +90,7 @@ test("it should create a correct frequency distribution for a random set with a 
     const input: Input = {
       data: list,
       options: {
-        lowerLimit: 5, 
+        lowerLimit: "5",
         classWidth,
       }
     };
@@ -101,7 +101,7 @@ test("it should create a correct frequency distribution for a random set with a 
 
 test("it should create a correct frequency distribution for a random set with a small width", async () => {
     const list = [8, 25, 11, 15, 29, 22, 10, 5, 17, 21, 22, 13, 26, 16, 18, 12, 9, 26, 20, 16, 23, 14, 19, 23, 20, 16, 27, 16, 21, 14];
-    const classWidth = 5;
+    const classWidth = "5";
     const expectedResult = [
         {
           class_boundary_lower: 4.5,
@@ -152,7 +152,7 @@ test("it should create a correct frequency distribution for a random set with a 
     const input: Input = {
       data: list,
       options: {
-        lowerLimit: 5, 
+        lowerLimit: "5",
         classWidth,
       }
     };
