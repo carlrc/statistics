@@ -29,7 +29,7 @@ class FrequencyDistribution extends Operation {
                                         classWidth: number,
                                         frequencyDistributions?: FrequencyDistributionClass[]): FrequencyDistributionClass[] {
         if (list.length === 0) {
-        return frequencyDistributions;
+            return frequencyDistributions;
         }
 
         const fd = this.createClass(lowerLimit, classWidth);

@@ -1,4 +1,4 @@
-import { StandardDeviation } from "./deviation/standard_deviation";
+import { StandardDeviation } from "./dispersions/standard_deviation";
 import { FrequencyDistribution } from "./distributions/frequency_distribution";
 import { Operations } from "./interfaces/operations";
 import { Scale } from "./interfaces/scale_enum";

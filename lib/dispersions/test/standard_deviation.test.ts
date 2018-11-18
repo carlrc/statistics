@@ -1,7 +1,7 @@
 import { Scale } from "../../interfaces/scale_enum";
 import { StandardDeviation } from "../standard_deviation";
 
-test("calculates standard deviation of integers", async () => {
+test("calculates standard dispersions of integers", async () => {
     const list = [6, 2, 3, 1];
     const input = {
         data: list
@@ -10,7 +10,7 @@ test("calculates standard deviation of integers", async () => {
     expect(result.result).toEqual(1.87);
 });
 
-test("calculates the standard deviation of decimals", async () => {
+test("calculates the standard dispersions of decimals", async () => {
     const list = [6.447, 2.1209831, 3.123, 1.0];
     const input = {
         data: list
