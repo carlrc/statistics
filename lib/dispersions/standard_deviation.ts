@@ -1,4 +1,5 @@
 import { Input } from "../interfaces/input";
+import {Options} from "../interfaces/options";
 import { Output } from "../interfaces/output";
 import { Scale } from "../interfaces/scale_enum";
 import { Operation } from "../operation";
@@ -19,6 +20,10 @@ class StandardDeviation extends Operation {
         } catch (error) {
             throw error;
         }
+    }
+
+    public async setOptions(): Promise<Options> {
+        return;
     }
 }
 

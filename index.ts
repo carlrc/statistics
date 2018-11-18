@@ -13,10 +13,13 @@ const dataImporter = new DataImporter();
 const start = async () => {
   try {
     const startupSelections = await startupScript.start();
-    const file = await dataImporter.import(pwd, startupSelections.file);
+    const data = await dataImporter.import(pwd, startupSelections.file);
     const operations = setOperations(Number(startupSelections.scale));
 
-    return await operations.get(startupSelections.operation).calculate(file);
+    const options = await operations.get(startupSelections.operation).setOptions();
+    const input = Object.assign({options}, data);
+
+    return await operations.get(startupSelections.operation).calculate(input);
   } catch (error) {
     console.log("General Error", error);
     throw error;

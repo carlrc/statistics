@@ -1,4 +1,5 @@
 import { Input } from "../interfaces/input";
+import {Options} from "../interfaces/options";
 import { Output } from "../interfaces/output";
 import { Scale } from "../interfaces/scale_enum";
 import { Operation } from "../operation";
@@ -9,6 +10,10 @@ class TestBaseClass extends Operation {
     }
 
     public async calculate(input: Input): Promise<Output> {
+        return;
+    }
+
+    public async setOptions(): Promise<Options> {
         return;
     }
 }
