@@ -32,7 +32,7 @@ class FrequencyDistribution extends Operation {
             {
                 type: "input",
                 name: "lowerLimit",
-                message: "What's the lower limit of your data set",
+                message: "What's the lower limit of your data set:",
                 validate(value: string) {
                     const canBeConvertedToNumber = Number(value);
                     if (canBeConvertedToNumber) {
@@ -44,7 +44,7 @@ class FrequencyDistribution extends Operation {
             {
                 type: "input",
                 name: "classWidth",
-                message: "What is your desired class width",
+                message: "What is your desired class width:",
                 validate(value: string) {
                     const canBeConvertedToNumber = Number(value);
                     if (canBeConvertedToNumber) {
