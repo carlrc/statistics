@@ -14,9 +14,10 @@ class StandardDeviation extends Operation {
 
     public async calculate(input: Input): Promise<Output> {
         try {
+            const n = input.options.dataSetType === DataSetType.POPULATION ? input.data.length : input.data.length - 1;
             const mean = this.mean(input.data);
             const squareOfDistanceFromMean = input.data.map((e) => Math.pow((e - mean), 2));
-            const sumOfDistancesOverLength = this.sum(squareOfDistanceFromMean) / input.data.length;
+            const sumOfDistancesOverLength = this.sum(squareOfDistanceFromMean) / n;
             const result = this.round(Math.sqrt(sumOfDistancesOverLength));
     
             return { result };
